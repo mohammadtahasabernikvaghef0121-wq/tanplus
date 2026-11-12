@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "u_1794465427028_o8j6mp",
+      "name": "طاها",
+      "email": "mohammadtahasabernikvaghef0121@gmail.com",
+      "passwordHash": "$2a$12$s3pJpyPwk2oduOkn3olRkexDmdAdKzuePWHAENyvSoEqF2T9lbgR.",
+      "isAdmin": false,
+      "plan": "AI PREMIUM",
+      "createdAt": "2026-11-12T06:37:07.392Z"
+    }
+  ],
+  "certificates": []
+}

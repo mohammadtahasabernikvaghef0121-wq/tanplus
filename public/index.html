@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تن‌پلاس | هوشمندتر تمرین کن</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --red: #7a0d1a;
+        --gold: #e0a91f;
+        --bg: #100d0e;
+        --card: #1b1517;
+        --white: #fff;
+        --muted: #aaa0a2;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Vazirmatn, sans-serif;
+        background: var(--bg);
+        color: var(--white);
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+      nav {
+        height: 85px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ffffff12;
+      }
+      .logo {
+        font-size: 27px;
+        font-weight: 900;
+      }
+      .logo span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        color: #c5babc;
+        font-size: 14px;
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+      .nav-actions {
+        display: flex;
+        gap: 9px;
+        align-items: center;
+      }
+      .btn {
+        background: var(--red);
+        color: white;
+        padding: 12px 21px;
+        border-radius: 9px;
+        font-weight: 700;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: 0.25s;
+        display: inline-block;
+      }
+      .btn:hover {
+        background: var(--gold);
+        color: #160d0e;
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        border: 1px solid #ffffff40;
+        background: transparent;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 9px;
+        cursor: pointer;
+      }
+      .btn-small {
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+      .hero {
+        min-height: 590px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: var(--red);
+        filter: blur(170px);
+        opacity: 0.35;
+        left: -150px;
+        top: 40px;
+      }
+      .hero-content {
+        max-width: 720px;
+        position: relative;
+        z-index: 2;
+        padding: 80px 0;
+      }
+      .tag {
+        color: var(--gold);
+        background: #e0a91f18;
+        border: 1px solid #e0a91f40;
+        padding: 7px 15px;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 13px;
+        margin-bottom: 22px;
+      }
+      .hero h1 {
+        font-size: clamp(40px, 6vw, 75px);
+        line-height: 1.5;
+        font-weight: 900;
+      }
+      .hero h1 span,
+      .gold {
+        color: var(--gold);
+      }
+      .hero p {
+        color: var(--muted);
+        line-height: 2.3;
+        font-size: 16px;
+        max-width: 600px;
+        margin: 20px 0 30px;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 13px;
+        flex-wrap: wrap;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: -15px;
+        position: relative;
+        z-index: 3;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid #ffffff10;
+        padding: 22px;
+        border-radius: 15px;
+        text-align: center;
+      }
+      .stat h2 {
+        color: var(--gold);
+        font-size: 29px;
+      }
+      .stat p {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      section {
+        padding: 90px 0;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .section-title h2 {
+        font-size: 35px;
+        font-weight: 900;
+      }
+      .section-title p {
+        color: var(--muted);
+        margin-top: 12px;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .feature,
+      .price-card,
+      .panel,
+      .trainer-card {
+        background: var(--card);
+        padding: 27px 22px;
+        border-radius: 15px;
+        border: 1px solid #ffffff10;
+        transition: 0.25s;
+      }
+      .feature:hover {
+        border-color: var(--gold);
+        transform: translateY(-6px);
+      }
+      .icon {
+        width: 52px;
+        height: 52px;
+        background: #7a0d1a30;
+        color: var(--gold);
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-size: 25px;
+        margin-bottom: 19px;
+      }
+      .feature p,
+      .muted {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 2.2;
+      }
+      .feature h3 {
+        margin-bottom: 9px;
+      }
+      .ai-section {
+        background: linear-gradient(120deg, #290d13, #171012);
+        border-block: 1px solid #ffffff10;
+      }
+      .ai-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        align-items: center;
+      }
+      .ai-box h2 {
+        font-size: 39px;
+        line-height: 1.7;
+      }
+      .ai-box p {
+        color: var(--muted);
+        line-height: 2.4;
+        margin: 18px 0;
+      }
+      .ai-visual {
+        background: var(--card);
+        border: 1px solid #e0a91f40;
+        border-radius: 20px;
+        padding: 25px;
+      }
+      .screen {
+        background: #100d0e;
+        border-radius: 12px;
+        padding: 23px;
+      }
+      .progress {
+        background: #ffffff15;
+        height: 9px;
+        border-radius: 20px;
+        margin: 10px 0 20px;
+        overflow: hidden;
+      }
+      .progress div {
+        background: var(--gold);
+        height: 100%;
+      }
+      .pricing {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .price-card.popular {
+        border-color: var(--gold);
+        transform: scale(1.025);
+      }
+      .price-card h3 {
+        font-size: 22px;
+      }
+      .price {
+        font-size: 32px;
+        font-weight: 900;
+        color: var(--gold);
+        margin: 18px 0;
+      }
+      .price small {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .price-card ul {
+        list-style: none;
+        color: #c7bfc0;
+        line-height: 2.8;
+        margin: 17px 0;
+        font-size: 13px;
+      }
+      .price-card li:before {
+        content: "✓ ";
+        color: var(--gold);
+      }
+      .trainer-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: center;
+      }
+      .trainer-card h3 {
+        font-size: 25px;
+        margin: 12px 0;
+      }
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .cert {
+        background: #100d0e;
+        border: 1px solid #ffffff15;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .cert img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+      .cert div {
+        padding: 10px;
+        font-size: 12px;
+      }
+      .cert a {
+        color: var(--gold);
+        font-size: 12px;
+      }
+      .cta {
+        background: linear-gradient(110deg, var(--red), #390d15);
+        padding: 58px 25px;
+        border-radius: 20px;
+        text-align: center;
+      }
+      .cta h2 {
+        font-size: 33px;
+      }
+      .cta p {
+        color: #eadadc;
+        margin: 13px 0 23px;
+      }
+      footer {
+        padding: 38px 0;
+        border-top: 1px solid #ffffff12;
+        margin-top: 85px;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .footer-content p {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: #000b;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        z-index: 20;
+      }
+      .modal-backdrop.show {
+        display: flex;
+      }
+      .modal {
+        background: #1b1517;
+        border: 1px solid #ffffff20;
+        border-radius: 18px;
+        padding: 27px;
+        width: 100%;
+        max-width: 430px;
+        position: relative;
+      }
+      .modal h2 {
+        margin-bottom: 18px;
+      }
+      .close {
+        position: absolute;
+        left: 17px;
+        top: 14px;
+        background: none;
+        border: 0;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .field {
+        margin: 13px 0;
+      }
+      .field label {
+        display: block;
+        color: #cfc4c6;
+        font-size: 13px;
+        margin-bottom: 7px;
+      }
+      .field input {
+        width: 100%;
+        background: #100d0e;
+        border: 1px solid #ffffff20;
+        border-radius: 9px;
+        padding: 12px;
+        color: #fff;
+        outline: none;
+      }
+      .field input:focus {
+        border-color: var(--gold);
+      }
+      .modal .btn {
+        width: 100%;
+        margin-top: 8px;
+      }
+      .switch {
+        color: var(--gold);
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .message {
+        font-size: 13px;
+        color: var(--gold);
+        margin-top: 12px;
+        min-height: 20px;
+      }
+      #accountPanel {
+        display: none;
+        padding: 35px 0 0;
+      }
+      .panel {
+        padding: 25px;
+      }
+      .panel-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .admin-tools {
+        margin-top: 22px;
+        padding-top: 20px;
+        border-top: 1px solid #ffffff18;
+      }
+      .upload-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .upload-row input {
+        background: #100d0e;
+        color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        max-width: 100%;
+      }
+      @media (max-width: 900px) {
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ai-box,
+        .trainer-card {
+          grid-template-columns: 1fr;
+        }
+        .pricing {
+          grid-template-columns: 1fr;
+        }
+        .price-card.popular {
+          transform: none;
+        }
+      }
+      @media (max-width: 600px) {
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          min-height: 530px;
+        }
+        .hero h1 {
+          font-size: 42px;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        .features {
+          grid-template-columns: 1fr;
+        }
+        .section-title h2 {
+          font-size: 27px;
+        }
+        .ai-box h2 {
+          font-size: 30px;
+        }
+        .cert-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">TAN<span>PLUS</span></a>
+        <div class="nav-links">
+          <a href="#features">امکانات</a><a href="#ai">هوش مصنوعی</a
+          ><a href="#trainer">مربی ما</a><a href="#pricing">تعرفه‌ها</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="btn-outline btn-small"
+            id="loginNav"
+            onclick="openAuth('login')"
+          >
+            ورود</button
+          ><button
+            class="btn btn-small"
+            id="registerNav"
+            onclick="openAuth('register')"
+          >
+            ثبت‌نام</button
+          ><button
+            class="btn btn-small"
+            id="accountNav"
+            style="display: none"
+            onclick="showAccount()"
+          >
+            حساب من
+          </button>
+        </div>
+      </nav>
+    </div>
+    <header class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="tag">✦ آینده تناسب اندام اینجاست</div>
+          <h1>نسخه قوی‌تر<br /><span>خودت رو بساز.</span></h1>
+          <p>
+            با تن‌پلاس، تمرین و تغذیه خودت رو هوشمندانه مدیریت کن. برنامه‌های
+            شخصی‌سازی‌شده و ابزارهای هوشمند در کنار تو هستند تا مسیر رسیدن به
+            هدفت ساده‌تر بشه.
+          </p>
+          <div class="hero-buttons">
+            <a href="#pricing" class="btn">شروع مسیر من ←</a
+            ><a href="#features" class="btn-outline">کشف امکانات</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <h2>01</h2>
+          <p>برنامه تمرینی شخصی</p>
+        </div>
+        <div class="stat">
+          <h2>02</h2>
+          <p>تغذیه هوشمند</p>
+        </div>
+        <div class="stat">
+          <h2>AI</h2>
+          <p>دستیار هوشمند</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>همه چیز برای <span class="gold">پیشرفت</span></h2>
+          <p>ابزارهای مورد نیازت برای رسیدن به هدف، یکجا جمع شده‌اند.</p>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <div class="icon">🏋️</div>
+            <h3>TRAIN</h3>
+            <p>برنامه تمرینی اختصاصی براساس قد، وزن، هدف و سطح آمادگی بدنی.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🥗</div>
+            <h3>NUTRI</h3>
+            <p>برنامه غذایی متناسب با نیازها و اهداف شخصی تو.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">📸</div>
+            <h3>AI SCANNER</h3>
+            <p>
+              ایده اسکن غذا و بررسی تقریبی کالری؛ اتصال هوش مصنوعی در نسخه بعدی.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="icon">🤖</div>
+            <h3>AI ASSISTANT</h3>
+            <p>فضای آماده برای دستیار هوشمند ورزشی و تغذیه‌ای.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ai-section" id="ai">
+      <div class="container">
+        <div class="ai-box">
+          <div>
+            <div class="tag">POWERED BY AI</div>
+            <h2>مربی هوشمندت،<br /><span class="gold">همیشه همراهته.</span></h2>
+            <p>
+              تن‌پلاس در حال آماده‌سازی ابزارهای هوشمند برای همراهی در مسیر ورزش
+              و تغذیه است. امکانات AI پس از اتصال سرویس و کلید API فعال می‌شوند.
+            </p>
+            <a href="#pricing" class="btn">مشاهده اشتراک‌ها</a>
+          </div>
+          <div class="ai-visual">
+            <div class="screen">
+              <h3 class="gold">TANPLUS SMART PLAN ✦</h3>
+              <br />
+              <p class="muted">نمایش نمونه پیشرفت (دمو)</p>
+              <p style="margin-top: 18px">تمرین هفتگی</p>
+              <div class="progress"><div style="width: 75%"></div></div>
+              <p>تغذیه روزانه</p>
+              <div class="progress"><div style="width: 85%"></div></div>
+              <p>فعالیت روزانه</p>
+              <div class="progress"><div style="width: 60%"></div></div>
+              <p class="gold" style="margin-top: 20px">
+                به مسیرت ادامه بده! 💪
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trainer">
+      <div class="container">
+        <div class="section-title">
+          <h2>مربی <span class="gold">تن‌پلاس</span></h2>
+          <p>آشنایی با مربی و مدارک حرفه‌ای</p>
+        </div>
+        <div class="trainer-card">
+          <div>
+            <div class="tag">COACH PROFILE</div>
+            <h3>محمد مهدی صابر نیک واقف</h3>
+            <p class="muted">مربی ورزشی تن‌پلاس</p>
+            <p class="muted" style="margin-top: 15px">
+              مدارک و گواهینامه‌های مربی در این بخش نمایش داده می‌شوند. تصاویر
+              مدارک پس از بارگذاری توسط مدیر سایت قابل مشاهده خواهند بود.
+            </p>
+          </div>
+          <div>
+            <h3 style="font-size: 17px">مدارک مربی</h3>
+            <div id="certGrid" class="cert-grid">
+              <p class="muted">در حال دریافت مدارک...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-title">
+          <h2>سرمایه‌گذاری روی <span class="gold">خودت</span></h2>
+          <p>
+            پلن مناسب خودت رو انتخاب کن. انتخاب پلن در حساب ذخیره می‌شود؛ پرداخت
+            آنلاین هنوز فعال نیست.
+          </p>
+        </div>
+        <div class="pricing">
+          <div class="price-card">
+            <h3>TRAIN</h3>
+            <p class="muted">برنامه تمرینی اختصاصی</p>
+            <div class="price">۲۹۹ <small>هزار تومان</small></div>
+            <ul>
+              <li>برنامه تمرینی شخصی</li>
+              <li>متناسب با هدف تو</li>
+              <li>سطح‌بندی تمرینات</li>
+              <li>راهنمای اجرای حرکات</li>
+            </ul>
+            <button class="btn" onclick="choosePlan('TRAIN')">
+              انتخاب پلن
+            </button>
+          </div>
+          <div class="price-card popular">
+            <div class="tag">پیشنهاد ویژه</div>
+            <h3>COMBO</h3>
+            <p class="muted">تمرین + تغذیه</p>
+            <div class="price">۴۹۹ <small>هزار تومان</small></div>
+            <ul>
+              <li>برنامه تمرینی اختصاصی</li>
+              <li>برنامه غذایی اختصاصی</li>
+              <li>هماهنگی تمرین و تغذیه</li>
+              <li>راهنمای پیشرفت</li>
+            </ul>
+            <button class="btn" onclick="choosePlan('COMBO')">
+              انتخاب پلن
+            </button>
+          </div>
+          <div class="price-card">
+            <h3>AI PREMIUM</h3>
+            <p class="muted">اشتراک هوش مصنوعی</p>
+            <div class="price">۱۹۹ <small>هزار تومان / ماه</small></div>
+            <ul>
+              <li>دستیار هوشمند (پس از اتصال API)</li>
+              <li>ابزار بررسی تغذیه</li>
+              <li>امکانات پیشرفته اشتراکی</li>
+              <li>قابلیت توسعه در آینده</li>
+            </ul>
+            <button class="btn" onclick="choosePlan('AI PREMIUM')">
+              انتخاب پلن
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="cta">
+        <h2>وقتشه شروع کنی!</h2>
+        <p>قوی‌تر از دیروز، هوشمندتر از همیشه.</p>
+        <button
+          class="btn"
+          style="background: #e0a91f; color: #160d0e"
+          onclick="openAuth('register')"
+        >
+          ساخت حساب کاربری
+        </button>
+      </div>
+    </div>
+
+    <section id="accountPanel">
+      <div class="container">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="tag">DASHBOARD</div>
+              <h2>سلام، <span class="gold" id="accountName"></span> 👋</h2>
+              <p class="muted" id="accountEmail"></p>
+            </div>
+            <button class="btn-outline" onclick="logout()">خروج از حساب</button>
+          </div>
+          <hr style="border-color: #ffffff18; margin: 22px 0" />
+          <p>
+            پلن انتخاب‌شده:
+            <strong class="gold" id="accountPlan">هنوز انتخاب نکردی</strong>
+          </p>
+          <p class="muted" style="margin-top: 10px">
+            حساب کاربری و انتخاب پلن روی سرور محلی ذخیره می‌شود.
+          </p>
+          <div id="adminTools" class="admin-tools" style="display: none">
+            <h3>پنل مدیریت مدارک مربی</h3>
+            <p class="muted">
+              فقط حساب مدیر می‌تواند تصویر مدارک را بارگذاری یا حذف کند. فرمت
+              مجاز: JPG، PNG، WEBP — حداکثر ۵ مگابایت.
+            </p>
+            <form id="certForm" class="upload-row">
+              <input
+                name="title"
+                placeholder="عنوان مدرک (مثلاً گواهینامه مربیگری)"
+                required
+              /><input
+                type="file"
+                name="certificate"
+                accept="image/png,image/jpeg,image/webp"
+                required
+              /><button class="btn" type="submit">بارگذاری مدرک</button>
+            </form>
+            <p id="adminMessage" class="message"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-content">
+        <div>
+          <a href="#" class="logo">TAN<span>PLUS</span></a>
+          <p style="margin-top: 10px">هوشمند تمرین کن. قوی‌تر زندگی کن.</p>
+        </div>
+        <div>
+          <p>© ۲۰۲۶ تن‌پلاس — تمامی حقوق محفوظ است.</p>
+          <p style="margin-top: 8px">
+            ساخته شده با ❤️ توسط <strong style="color: #e0a91f">TahaDev</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal-backdrop" id="authModal">
+      <div class="modal">
+        <button class="close" onclick="closeAuth()">×</button>
+        <h2 id="modalTitle">ورود به تن‌پلاس</h2>
+        <form id="authForm">
+          <div class="field" id="nameField" style="display: none">
+            <label>نام و نام خانوادگی</label
+            ><input name="name" autocomplete="name" placeholder="مثلاً طاها" />
+          </div>
+          <div class="field">
+            <label>ایمیل</label
+            ><input
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="field">
+            <label>رمز عبور</label
+            ><input
+              name="password"
+              type="password"
+              required
+              minlength="8"
+              autocomplete="current-password"
+              placeholder="حداقل ۸ کاراکتر"
+            />
+          </div>
+          <button class="btn" id="authSubmit">ورود</button>
+          <p class="message" id="authMessage"></p>
+        </form>
+        <p class="muted" style="margin-top: 15px">
+          <span id="switchText">حساب نداری؟</span>
+          <span class="switch" id="switchAuth" onclick="switchAuth()"
+            >ثبت‌نام کن</span
+          >
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let authMode = "login",
+        me = null,
+        isAdmin = false;
+      const $ = (id) => document.getElementById(id);
+      function openAuth(mode) {
+        authMode = mode;
+        updateAuthModal();
+        $("authModal").classList.add("show");
+        $("authMessage").textContent = "";
+      }
+      function closeAuth() {
+        $("authModal").classList.remove("show");
+      }
+      function switchAuth() {
+        authMode = authMode === "login" ? "register" : "login";
+        updateAuthModal();
+        $("authMessage").textContent = "";
+      }
+      function updateAuthModal() {
+        const reg = authMode === "register";
+        $("modalTitle").textContent = reg
+          ? "ساخت حساب کاربری"
+          : "ورود به تن‌پلاس";
+        $("nameField").style.display = reg ? "block" : "none";
+        $("authForm").elements.name.required = reg;
+        $("authSubmit").textContent = reg ? "ثبت‌نام" : "ورود";
+        $("switchText").textContent = reg ? "قبلاً حساب ساختی؟" : "حساب نداری؟";
+        $("switchAuth").textContent = reg ? "وارد شو" : "ثبت‌نام کن";
+      }
+      async function api(url, options = {}) {
+        const r = await fetch(url, {
+          credentials: "same-origin",
+          ...options,
+          headers: {
+            ...(options.body instanceof FormData
+              ? {}
+              : { "Content-Type": "application/json" }),
+            ...(options.headers || {}),
+          },
+        });
+        const d = await r
+          .json()
+          .catch(() => ({ error: "پاسخ سرور قابل خواندن نیست." }));
+        if (!r.ok) throw new Error(d.error || "خطایی رخ داد.");
+        return d;
+      }
+      $("authForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const f = new FormData(e.target);
+        const body = Object.fromEntries(f.entries());
+        $("authMessage").textContent = "در حال انجام...";
+        try {
+          const d = await api("/api/" + authMode, {
+            method: "POST",
+            body: JSON.stringify(body),
+          });
+          $("authMessage").textContent = d.message;
+          await refreshMe();
+          setTimeout(closeAuth, 500);
+        } catch (err) {
+          $("authMessage").textContent = err.message;
+        }
+      });
+      async function refreshMe() {
+        try {
+          const d = await api("/api/me");
+          me = d.user;
+          isAdmin = d.isAdmin;
+          renderAuth();
+          if (me) renderAccount();
+          else $("accountPanel").style.display = "none";
+        } catch (e) {}
+      }
+      function renderAuth() {
+        $("loginNav").style.display = me ? "none" : "inline-block";
+        $("registerNav").style.display = me ? "none" : "inline-block";
+        $("accountNav").style.display = me ? "inline-block" : "none";
+      }
+      function showAccount() {
+        if (!me) {
+          openAuth("login");
+          return;
+        }
+        $("accountPanel").style.display = "block";
+        $("accountPanel").scrollIntoView({ behavior: "smooth" });
+      }
+      function renderAccount() {
+        $("accountName").textContent = me.name;
+        $("accountEmail").textContent = me.email;
+        $("accountPlan").textContent = me.plan || "هنوز انتخاب نکردی";
+        $("adminTools").style.display = isAdmin ? "block" : "none";
+      }
+      async function logout() {
+        try {
+          await api("/api/logout", { method: "POST" });
+          me = null;
+          isAdmin = false;
+          renderAuth();
+          $("accountPanel").style.display = "none";
+          alert("از حساب خارج شدی.");
+        } catch (e) {
+          alert(e.message);
+        }
+      }
+      async function choosePlan(plan) {
+        if (!me) {
+          openAuth("register");
+          return;
+        }
+        try {
+          const d = await api("/api/plan", {
+            method: "POST",
+            body: JSON.stringify({ plan }),
+          });
+          me.plan = d.plan;
+          renderAccount();
+          alert(d.message);
+        } catch (e) {
+          alert(e.message);
+        }
+      }
+      async function loadCertificates() {
+        try {
+          const d = await api("/api/certificates");
+          const grid = $("certGrid");
+          if (!d.certificates.length) {
+            grid.innerHTML =
+              '<p class="muted">مدرکی هنوز بارگذاری نشده است.</p>';
+            return;
+          }
+          grid.innerHTML = d.certificates
+            .map(
+              (c) =>
+                `<div class="cert"><a href="${
+                  c.url
+                }" target="_blank" rel="noopener"><img src="${
+                  c.url
+                }" alt="${escapeHtml(c.title)}"></a><div>${escapeHtml(
+                  c.title
+                )}${
+                  isAdmin
+                    ? `<br><a href="#" onclick="deleteCert('${c.id}');return false">حذف مدرک</a>`
+                    : ""
+                }</div></div>`
+            )
+            .join("");
+        } catch (e) {
+          $("certGrid").textContent = "بارگذاری مدارک انجام نشد.";
+        }
+      }
+      function escapeHtml(s) {
+        return String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            }[c])
+        );
+      }
+      $("certForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        $("adminMessage").textContent = "در حال بارگذاری...";
+        try {
+          await api("/api/certificates", { method: "POST", body: form });
+          $("adminMessage").textContent = "مدرک بارگذاری شد.";
+          e.target.reset();
+          loadCertificates();
+        } catch (err) {
+          $("adminMessage").textContent = err.message;
+        }
+      });
+      async function deleteCert(id) {
+        if (!confirm("این مدرک حذف شود؟")) return;
+        try {
+          await api("/api/certificates/" + id, { method: "DELETE" });
+          loadCertificates();
+        } catch (e) {
+          alert(e.message);
+        }
+      }
+      refreshMe().then(loadCertificates);
+    </script>
+  </body>
+</html>
